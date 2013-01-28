@@ -12,6 +12,13 @@ TestJobForm
 
 Note: The use of scripts and frameworks are not allowed.
 
+The time during which the test job done ~16 Hours
+
+1. Decided not to use the pattern MVC, for the sake of a single file
+2. Form easily extensible, easy to add new types of fields and validators
+3. In the form, you can add filters as validators
+4. Check javascript dynamically depending on the attributes
+5. Get things looked added Twitter Bootstrap
 <!--
 mysqldump -utest_form -p#8fGmAHV#8fGmAHV -B test_form > database.sql
 mysql --user=test_form test_form -p#8fGmAHV#8fGmAHV

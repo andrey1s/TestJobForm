@@ -23,7 +23,7 @@ class Required extends AbstractValidator {
      */
     public function isValid() {
         $value = trim($this->validateValue);
-        return empty($value);
+        return !empty($value);
     }
 
 }
