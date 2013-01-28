@@ -21,6 +21,15 @@ class Submit extends Input {
     }
 
     /**
+     * is Valid
+     * 
+     * @return boolean
+     */
+    public function isValid() {
+        return true;
+    }
+
+    /**
      * render Submit Element
      * @return string
      */

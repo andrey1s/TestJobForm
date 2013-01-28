@@ -1,5 +1,6 @@
 <?php
 require 'lib/common.php';
+#error_reporting(E_ALL);
 
 use Form\Form,
     Form\Elements,
@@ -64,12 +65,13 @@ if ($form->isRequestMethod('POST')) {
     } else {
         $form->bind($_POST);
         if ($form->isValid()) {
-            $file = $form->getElement('avatar');
-            if ($file->getFileName()) {
-                $filename = $file->getValue();
-            }
             if ($user = $db->addUser($form->getValue('email'), md5($form->getValue('pass')))) {
                 $auth->setData($user);
+                $file = $form->getElement('avatar');
+                if ($file->getFileName()) {
+                    $file->setFileName(md5($user->name));
+                    $filename = $file->getValue();
+                }
             }
         }
     }
@@ -124,6 +126,9 @@ if ($form->isRequestMethod('POST')) {
             <?php if ($auth->hasIdentity()): ?>
                 <div class="form-signin">
                     <?php echo $tr->translate('Hello'); ?> <?php echo $auth->getIdentity()->name; ?>
+                    <?php if (file_exists(__DIR__ . '/uploads/' . md5($auth->getIdentity()->name))): ?>
+                        <img src="/uploads/<?php echo md5($auth->getIdentity()->name);?>"/>
+                    <?php endif; ?>
                     <a href="?logout=true"><?php echo $tr->translate('Logout'); ?></a>
                 </div>
             <?php else: ?>

@@ -212,7 +212,7 @@ class Form {
         if ($this->enctype) {
             return $this->enctype;
         } elseif ($this->searchElement('Type', 'file')) {
-            $this->setEnctype(' multipart/form-data');
+            $this->setEnctype('multipart/form-data');
         } else {
             $this->setEnctype('application/x-www-form-urlencoded');
         }

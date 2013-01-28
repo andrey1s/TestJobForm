@@ -58,7 +58,7 @@ class Input extends AbstractElement {
     public function addValidators() {
         $validators = func_get_args();
         foreach ($validators as $validator) {
-            if ($validator instanceof AbstractValidator) {
+            if ($validator instanceof Validator) {
                 $this->setArrayAttr($validator->getAttr());
                 $this->validators[] = $validator;
             } else {

@@ -76,7 +76,7 @@ class File extends Input {
      * @return string
      */
     public function getFileName() {
-        if (empty($this->fileName)) {
+        if (empty($this->fileName) && isset($_FILES[$this->getName()])) {
             $this->setFileName($_FILES[$this->getName()]['name']);
         }
         return $this->fileName;
