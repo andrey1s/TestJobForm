@@ -40,7 +40,7 @@ class DataBase {
     public function addUser($name, $pass) {
         $sth = $this->dbh->prepare("INSERT INTO test_user (name, pass) VALUES (:name, :pass)");
         if ($sth->execute(array(':name' => $name, ':pass' => $pass))) {
-            return $this->getFromName($name, $pass);
+            return $this->getFromNamePass($name, $pass);
         }
         return false;
     }
