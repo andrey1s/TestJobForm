@@ -33,7 +33,7 @@ class Input extends AbstractElement {
      *
      * @var array
      */
-    protected $validators;
+    protected $validators = array();
 
     /**
      * init
