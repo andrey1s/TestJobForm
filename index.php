@@ -27,8 +27,10 @@ $submit = new Elements\Submit('submit');
 $submit->setAttr('class', 'btn btn-large btn-primary');
 $attrInput = array('class' => 'input-block-level');
 $form->addInputElement('email', 'email', $attrInput)
-        ->addValidators($validatorEmail, $notBlank, $max, $unique, $required);
-$form->addInputElement('pass', 'password', $attrInput)->addValidators($notBlank, $max, $required);
+        ->addValidators($validatorEmail, $notBlank, $max, $unique, $required)
+        ->setLabel('Email');
+$form->addInputElement('pass', 'password', $attrInput)->addValidators($notBlank, $max, $required)
+        ->setLabel('Password');
 $file = new File('avatar', __DIR__ . '/uploads/');
 $file->addValidators($fileTypes);
 $form->addElements($file, $submit);
