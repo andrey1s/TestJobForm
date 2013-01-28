@@ -32,7 +32,8 @@ $form->addInputElement('email', 'email', $attrInput)
 $form->addInputElement('pass', 'password', $attrInput)->addValidators($notBlank, $max, $required)
         ->setLabel('Password');
 $file = new File('avatar', __DIR__ . '/uploads/');
-$file->addValidators($fileTypes);
+$file->addValidators($fileTypes)
+        ->setLabel('Avatar');
 $form->addElements($file, $submit);
 /* form login */
 $formLogin = new Form('login');
